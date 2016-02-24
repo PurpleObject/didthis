@@ -24,11 +24,43 @@ class DidThisToday
         );
     }
 
+    /**
+     * Set what you have done for user associated with API Key.
+     *
+     * @param $did
+     * @return mixed
+     */
     public function didThis($did)
     {
+        $response = $this->client->request('POST', '/api/didthis', [
+            'form_params' => [
+                'did' => $did
+                ]
+            ]
+        );
 
+        return json_decode($response->getBody(), true);
     }
 
+    /**
+     * Get all that has been done for user associated with API Key.
+     *
+     * @param int $start
+     * @param int $limit
+     * @return mixed
+     */
+    public function getDidsUser($start = 0, $limit = 50)
+    {
+        $response = $this->client->request('POST', '/api/dids', [
+                'form_params' => [
+                    'start' => $start,
+                    'limit' => $limit
+                ]
+            ]
+        );
+
+        return json_decode($response->getBody(), true);
+    }
 
     /**
      * Return all tags for user associated with API Key.
