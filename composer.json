@@ -1,6 +1,7 @@
 {
   "name": "purpleobject/didthis",
   "description": "Easy interaction with the DidThisToday API",
+  "keywords": ["API", "Did This Today"],
   "license": "MIT",
   "authors": [
     {

@@ -7,4 +7,4 @@
 ## Code Example
 
     $dtt = new DidThisToday('mydttsupersecretapikey');
-    $dtt->getTeams();
+    $dtt->getTags();
