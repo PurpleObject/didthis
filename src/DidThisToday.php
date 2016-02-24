@@ -9,18 +9,15 @@ class DidThisToday
     /** @var API Key for DidThisToday API */
     private $_apiKey;
 
-    /** @var API url base for DidThisToday API */
-    private $_apiUrl;
+    /** @var Base url base for DidThisToday */
+    private $_dttUrl;
 
-    public function __construct(
-        $apiKey,
-        $apiUrl
-    ) {
+    public function __construct($apiKey) {
         $this->_apiKey = $apiKey;
-        $this->_apiUrl = $apiUrl;
+        $this->_dttUri = 'http://didthistoday.com';
         $this->client = new Client(
             [
-                'base_uri' => $this->_apiUrl,
+                'base_uri' => $this->_dttUrl,
                 'headers'  => ['DTT-APIKEY' => $this->_apiKey],
                 'timeout'  => 2.0
             ]
@@ -32,15 +29,16 @@ class DidThisToday
 
     }
 
+
     /**
      * Return all tags for user associated with API Key.
      *
-     * @return \Psr\Http\Message\StreamInterface
+     * @return array
      */
     public function getTags()
     {
-        $response = $this->client->request('GET', '/tags');
+        $response = $this->client->request('GET', '/api/tags');
 
-        return $response->getBody();
+        return json_decode($response->getBody(), true);
     }
 }
