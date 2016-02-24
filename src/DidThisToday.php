@@ -24,7 +24,7 @@ class DidThisToday
         );
     }
 
-    public function didThis()
+    public function didThis($did)
     {
 
     }
@@ -41,4 +41,17 @@ class DidThisToday
 
         return json_decode($response->getBody(), true);
     }
+
+    /**
+     * Return all Teams for user associated with API Key.
+     *
+     * @return mixed
+     */
+    public function getTeams()
+    {
+        $response = $this->client->request('GET', '/api/teams');
+
+        return json_decode($response->getBody(), true);
+    }
+
 }
