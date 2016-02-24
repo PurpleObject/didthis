@@ -17,7 +17,7 @@ class DidThisToday
         $this->_dttUri = 'http://didthistoday.com';
         $this->client = new Client(
             [
-                'base_uri' => $this->_dttUrl,
+                'base_uri' => $this->_dttUri,
                 'headers'  => ['DTT-APIKEY' => $this->_apiKey],
                 'timeout'  => 2.0
             ]
