@@ -10,7 +10,7 @@ class DidThisToday
     private $_apiKey;
 
     /** @var Base url base for DidThisToday */
-    private $_dttUrl;
+    private $_dttUri;
 
     public function __construct($apiKey) {
         $this->_apiKey = $apiKey;
@@ -27,8 +27,9 @@ class DidThisToday
     /**
      * Set what you have done for user associated with API Key.
      *
-     * @param $did
-     * @return mixed
+     * @param  $did
+     *
+     * @return array
      */
     public function didThis($did)
     {
@@ -47,7 +48,8 @@ class DidThisToday
      *
      * @param int $start
      * @param int $limit
-     * @return mixed
+     *
+     * @return array
      */
     public function getDidsUser($start = 0, $limit = 50)
     {
@@ -77,7 +79,7 @@ class DidThisToday
     /**
      * Return all Teams for user associated with API Key.
      *
-     * @return mixed
+     * @return array
      */
     public function getTeams()
     {
@@ -85,5 +87,4 @@ class DidThisToday
 
         return json_decode($response->getBody(), true);
     }
-
 }
