@@ -2,7 +2,7 @@
 
 ## Installation
 
-composer require purpleobject/didthis
+    composer require purpleobject/didthis
 
 ## Code Example
 
